@@ -1,0 +1,117 @@
+{
+  "living": [
+    {
+      "id": "layout_a",
+      "name": "Layout A",
+      "description": "L-shaped sofa + center table + TV unit",
+      "pieces": ["L-shaped Sofa", "Center Table", "TV Unit", "Floor Lamp"],
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_b",
+      "name": "Layout B",
+      "description": "3-seat sofa + 2 accent chairs + coffee table",
+      "pieces": ["3-Seat Sofa", "2 Accent Chairs", "Coffee Table", "Side Tables"],
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_c",
+      "name": "Layout C",
+      "description": "Sectional sofa + TV wall + bookshelf",
+      "pieces": ["Sectional Sofa", "TV Feature Wall", "Bookshelf", "Ottoman"],
+      "image": "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&h=500&fit=crop"
+    }
+  ],
+  "master-bedroom": [
+    {
+      "id": "layout_a",
+      "name": "Layout A",
+      "description": "King bed + 2 nightstands + dresser",
+      "pieces": ["King Bed", "2 Nightstands", "Dresser", "Wardrobe"],
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_b",
+      "name": "Layout B",
+      "description": "King bed + reading nook + walk-in wardrobe",
+      "pieces": ["King Bed", "Reading Chair", "Walk-in Wardrobe", "Vanity"],
+      "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_c",
+      "name": "Layout C",
+      "description": "Platform bed + minimalist storage + accent wall",
+      "pieces": ["Platform Bed", "Floating Shelves", "Accent Wall", "Bench"],
+      "image": "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&h=500&fit=crop"
+    }
+  ],
+  "bedroom": [
+    {
+      "id": "layout_a",
+      "name": "Layout A",
+      "description": "Queen bed + study desk + wardrobe",
+      "pieces": ["Queen Bed", "Study Desk", "Wardrobe", "Bookshelf"],
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_b",
+      "name": "Layout B",
+      "description": "Twin beds + shared desk + storage",
+      "pieces": ["2 Twin Beds", "Shared Desk", "Storage Unit", "Nightstand"],
+      "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_c",
+      "name": "Layout C",
+      "description": "Loft bed + play area + study zone",
+      "pieces": ["Loft Bed", "Play Area", "Study Zone", "Storage Cubes"],
+      "image": "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=800&h=500&fit=crop"
+    }
+  ],
+  "kitchen": [
+    {
+      "id": "layout_a",
+      "name": "Layout A",
+      "description": "L-shaped kitchen + island + bar stools",
+      "pieces": ["L-shaped Counter", "Kitchen Island", "Bar Stools", "Pendant Lights"],
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_b",
+      "name": "Layout B",
+      "description": "Galley kitchen + breakfast nook",
+      "pieces": ["Galley Counters", "Breakfast Nook", "Dining Table", "Chairs"],
+      "image": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_c",
+      "name": "Layout C",
+      "description": "Open kitchen + dining integration",
+      "pieces": ["Open Counter", "Dining Table", "6 Chairs", "Buffet Cabinet"],
+      "image": "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&h=500&fit=crop"
+    }
+  ],
+  "bathroom": [
+    {
+      "id": "layout_a",
+      "name": "Layout A",
+      "description": "Walk-in shower + freestanding tub",
+      "pieces": ["Walk-in Shower", "Freestanding Tub", "Double Vanity", "Heated Floor"],
+      "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_b",
+      "name": "Layout B",
+      "description": "Compact shower + single vanity",
+      "pieces": ["Shower Enclosure", "Single Vanity", "Mirror Cabinet", "Towel Rail"],
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=500&fit=crop"
+    },
+    {
+      "id": "layout_c",
+      "name": "Layout C",
+      "description": "Spa-style bathroom with soaking tub",
+      "pieces": ["Soaking Tub", "Rain Shower", "Double Vanity", "Sauna Bench"],
+      "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=500&fit=crop"
+    }
+  ]
+}

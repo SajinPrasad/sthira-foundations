@@ -1,0 +1,62 @@
+[
+  {
+    "id": "modern",
+    "name": "Modern",
+    "description": "Clean lines, neutral palette, functional elegance",
+    "accent": "#2C2C2C",
+    "wall": "charcoal",
+    "floor": "concrete",
+    "ceiling": "false_ceiling",
+    "size": "large",
+    "furniture": "layout_b",
+    "gradient": "from-zinc-800 to-zinc-600"
+  },
+  {
+    "id": "minimal",
+    "name": "Minimal",
+    "description": "Less is more — pure whites and open space",
+    "accent": "#F0EDE8",
+    "wall": "white_paint",
+    "floor": "marble",
+    "ceiling": "standard",
+    "size": "large",
+    "furniture": "layout_a",
+    "gradient": "from-stone-200 to-stone-100"
+  },
+  {
+    "id": "luxury",
+    "name": "Luxury",
+    "description": "Opulent materials, rich tones, statement pieces",
+    "accent": "#C9A84C",
+    "wall": "textured_wall",
+    "floor": "marble",
+    "ceiling": "coffered",
+    "size": "large",
+    "furniture": "layout_c",
+    "gradient": "from-amber-900 to-amber-700"
+  },
+  {
+    "id": "scandinavian",
+    "name": "Scandinavian",
+    "description": "Hygge-inspired warmth with natural materials",
+    "accent": "#8FAF8A",
+    "wall": "warm_beige",
+    "floor": "wood",
+    "ceiling": "wooden_panels",
+    "size": "medium",
+    "furniture": "layout_a",
+    "gradient": "from-green-800 to-green-600"
+  },
+  {
+    "id": "traditional",
+    "name": "Traditional",
+    "description": "Timeless craftsmanship with classic detailing",
+    "accent": "#7B4F2E",
+    "wall": "warm_beige",
+    "floor": "herringbone",
+    "ceiling": "coffered",
+    "size": "medium",
+    "furniture": "layout_c",
+    "gradient": "from-amber-800 to-amber-600"
+  }
+]

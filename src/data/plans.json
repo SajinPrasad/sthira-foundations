@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1bhk",
+    "name": "1 BHK Apartment",
+    "description": "Compact and efficient layout perfect for singles or couples. Smart use of space with modern amenities.",
+    "area": "450–600 sq ft",
+    "rooms": ["living", "bedroom", "kitchen", "bathroom"],
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop",
+    "tag": "Compact"
+  },
+  {
+    "id": "2bhk",
+    "name": "2 BHK Apartment",
+    "description": "Ideal for small families. Balanced layout with dedicated spaces for living, dining, and sleeping.",
+    "area": "750–1000 sq ft",
+    "rooms": ["living", "master-bedroom", "bedroom", "kitchen", "bathroom"],
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+    "tag": "Popular"
+  },
+  {
+    "id": "3bhk",
+    "name": "3 BHK House",
+    "description": "Spacious family home with generous room sizes, dedicated dining area, and multiple bathrooms.",
+    "area": "1200–1600 sq ft",
+    "rooms": ["living", "master-bedroom", "bedroom", "kitchen", "bathroom"],
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+    "tag": "Family"
+  },
+  {
+    "id": "villa",
+    "name": "Villa Layout",
+    "description": "Premium villa with expansive interiors, double-height ceilings, and luxury finishes throughout.",
+    "area": "2500–4000 sq ft",
+    "rooms": ["living", "master-bedroom", "bedroom", "kitchen", "bathroom"],
+    "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&h=400&fit=crop",
+    "tag": "Luxury"
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "wall": [
+    {
+      "id": "white_paint",
+      "name": "White Paint",
+      "color": "#F5F5F0",
+      "preview": "#F5F5F0",
+      "description": "Clean matte finish"
+    },
+    {
+      "id": "warm_beige",
+      "name": "Warm Beige",
+      "color": "#D4B896",
+      "preview": "#D4B896",
+      "description": "Earthy warm tone"
+    },
+    {
+      "id": "sage_green",
+      "name": "Sage Green",
+      "color": "#8FAF8A",
+      "preview": "#8FAF8A",
+      "description": "Calming natural hue"
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal",
+      "color": "#3D3D3D",
+      "preview": "#3D3D3D",
+      "description": "Bold statement wall"
+    },
+    {
+      "id": "wallpaper_modern",
+      "name": "Modern Wallpaper",
+      "color": "#B8C4D0",
+      "preview": "linear-gradient(135deg, #B8C4D0 25%, #8FA3B1 75%)",
+      "description": "Geometric pattern"
+    },
+    {
+      "id": "textured_wall",
+      "name": "Textured Plaster",
+      "color": "#C9BBA8",
+      "preview": "#C9BBA8",
+      "description": "Artisan texture finish"
+    }
+  ],
+  "floor": [
+    {
+      "id": "wood",
+      "name": "Hardwood",
+      "color": "#8B6914",
+      "preview": "#A0784A",
+      "description": "Oak engineered wood"
+    },
+    {
+      "id": "marble",
+      "name": "Marble",
+      "color": "#E8E4DC",
+      "preview": "#E8E4DC",
+      "description": "Italian white marble"
+    },
+    {
+      "id": "tile",
+      "name": "Ceramic Tile",
+      "color": "#C8C8C8",
+      "preview": "#C8C8C8",
+      "description": "Polished porcelain"
+    },
+    {
+      "id": "concrete",
+      "name": "Concrete",
+      "color": "#9E9E9E",
+      "preview": "#9E9E9E",
+      "description": "Polished micro-cement"
+    },
+    {
+      "id": "dark_wood",
+      "name": "Dark Walnut",
+      "color": "#4A2C0A",
+      "preview": "#5C3A1E",
+      "description": "Rich walnut finish"
+    },
+    {
+      "id": "herringbone",
+      "name": "Herringbone",
+      "color": "#B8935A",
+      "preview": "#B8935A",
+      "description": "Classic parquet pattern"
+    }
+  ],
+  "ceiling": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "description": "Plain white ceiling"
+    },
+    {
+      "id": "false_ceiling",
+      "name": "False Ceiling",
+      "description": "Recessed lighting panels"
+    },
+    {
+      "id": "wooden_panels",
+      "name": "Wooden Panels",
+      "description": "Warm timber cladding"
+    },
+    {
+      "id": "coffered",
+      "name": "Coffered",
+      "description": "Classic grid pattern"
+    }
+  ]
+}
