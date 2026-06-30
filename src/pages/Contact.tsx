@@ -31,10 +31,21 @@ const Contact: React.FC = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise(r => setTimeout(r, 800));
-    console.log('Contact form submission:', data);
-    toast.success('Message sent! Our team will reach out within 24 hours.');
-    reset();
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbzrTSG9t9foBnBNn9HMO9PlK2zyupll_Ymr_cKhV2NV41QdjfUtDJlAgdFAFhU6MsLpZA/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      toast.success('Message sent! Our team will reach out within 24 hours.');
+      reset();
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      toast.error('Failed to send message. Please try again later.');
+    }
   };
 
   return (
