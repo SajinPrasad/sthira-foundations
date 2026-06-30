@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Youtube, Facebook } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Footer: React.FC = () => {
@@ -11,21 +11,24 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <img src={logo} alt="Sthira Spaces Logo" className="h-12 w-auto object-contain" />
+              <img src={logo} alt="Sthira Spaces Logo" className="h-20 w-auto object-contain" />
             </div>
             <p className="text-stone-500 text-sm leading-relaxed mb-6">
               Visualize your dream space before a single wall is built.
             </p>
             <div className="flex items-center gap-3">
               {[
-                { icon: <Instagram className="w-4 h-4" />, label: 'Instagram' },
-                { icon: <Twitter className="w-4 h-4" />, label: 'Twitter' },
-                { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn' },
-                { icon: <Youtube className="w-4 h-4" />, label: 'YouTube' },
+                { icon: <Instagram className="w-4 h-4" />, label: 'Instagram', href: 'https://www.instagram.com/sthira_spaces?igsh=MTlhZ3QyY3U4Y3p1eA==' },
+                { icon: <Facebook className="w-4 h-4" />, label: 'Facebook', href: 'https://www.facebook.com/share/1JDmwH5r8i/' },
+                // { icon: <Twitter className="w-4 h-4" />, label: 'Twitter', href: '#' },
+                { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn', href: '#' },
+                { icon: <Youtube className="w-4 h-4" />, label: 'YouTube', href: '#' },
               ].map(social => (
                 <a
                   key={social.label}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-9 h-9 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-400 hover:text-stone-200 flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 >
@@ -72,7 +75,7 @@ const Footer: React.FC = () => {
                   Contact Us
                 </NavLink>
               </li>
-              {['hello@interio.design', '+91 98765 43210'].map(item => (
+              {['sthiraspaces@gmail.com', '+91 8593930903', 'Amaravathi, Muthukulam, Alappuzha'].map(item => (
                 <li key={item}>
                   <span className="text-stone-500 text-sm">{item}</span>
                 </li>

@@ -19,9 +19,9 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const contactInfo = [
-  { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+91 98765 43210' },
-  { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'hello@interio.design' },
-  { icon: <MapPin className="w-5 h-5" />, label: 'Studio', value: 'Bengaluru, Karnataka, India' },
+  { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+91 8593930903' },
+  { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'sthiraspaces@gmail.com' },
+  { icon: <MapPin className="w-5 h-5" />, label: 'Studio', value: 'Amaravathi, Muthukulam, Alappuzha' },
   { icon: <Clock className="w-5 h-5" />, label: 'Hours', value: 'Mon–Sat, 9 AM – 6 PM IST' },
 ];
 
@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
               <span className="text-amber-400">Extraordinary</span>
             </h1>
             <p className="text-stone-400 text-lg max-w-xl mx-auto leading-relaxed">
-              Ready to turn your configurator design into a real project? Our team is here to help with planning, materials, and execution.
+              Ready to turn your design into a real project? Our team is here to help with planning, materials, and execution.
             </p>
           </motion.div>
 

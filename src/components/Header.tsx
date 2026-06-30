@@ -28,13 +28,13 @@ const Header: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
         {/* Logo */}
         <NavLink
           to="/"
           className="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-lg"
         >
-          <img src={logo} alt="Sthira Spaces Logo" className="h-12 w-auto object-contain" />
+          <img src={logo} alt="Sthira Spaces Logo" className="h-20 w-auto object-contain" />
         </NavLink>
 
         {/* Desktop nav */}
