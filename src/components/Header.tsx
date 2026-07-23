@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Home, Settings, Phone, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/logo.png";
 
 const navLinks = [
-  { to: "/", label: "Home", icon: <Home className="w-4 h-4" /> },
-  // { to: '/configurator', label: 'Configurator', icon: <Settings className="w-4 h-4" /> },
-  { to: "/contact", label: "Contact", icon: <Phone className="w-4 h-4" /> },
+  { to: "/", label: "Home" },
+  // { to: '/configurator', label: 'Configurator' },
+  { to: "/contact", label: "Contact" },
 ];
 
 const Header: React.FC = () => {
@@ -16,6 +16,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
+    handler();
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -24,22 +25,27 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen
-          ? "bg-stone-950/95 backdrop-blur-md border-b border-stone-800/60 shadow-lg shadow-stone-950/40"
-          : "bg-transparent"
+          ? "bg-cream-100/90 backdrop-blur-md border-b border-line shadow-sm"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 md:h-24 flex items-center justify-between">
         {/* Logo */}
         <NavLink
           to="/"
-          className="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-lg"
+          aria-label="Sthira Spaces — home"
+          className="flex items-center gap-2.5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 focus-visible:ring-offset-4 focus-visible:ring-offset-cream-100"
         >
-          <img src={logo} alt="Sthira Spaces Logo" className="h-20 w-auto object-contain" />
+          <img
+            src={logo}
+            alt="Sthira Spaces"
+            className="h-14 md:h-16 w-auto object-contain"
+          />
         </NavLink>
 
         {/* Desktop nav */}
         <nav
-          className="hidden md:flex items-center gap-1"
+          className="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2"
           aria-label="Main navigation"
         >
           {navLinks.map((link) => (
@@ -48,10 +54,12 @@ const Header: React.FC = () => {
               to={link.to}
               end={link.to === "/"}
               className={({ isActive }) =>
-                `flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                `relative text-[15px] tracking-wide transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 rounded ${
                   isActive
-                    ? "text-amber-400 bg-amber-400/10"
-                    : "text-stone-400 hover:text-stone-100 hover:bg-stone-800/60"
+                    ? "text-clay-600 font-medium"
+                    : "text-ink-soft hover:text-clay-600"
+                } after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-clay-600 after:transition-all after:duration-300 ${
+                  isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
                 }`
               }
             >
@@ -61,13 +69,14 @@ const Header: React.FC = () => {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* <NavLink
-            to="/configurator"
-            className="bg-amber-400 hover:bg-amber-300 text-stone-950 font-semibold text-sm px-5 py-2 rounded-full transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-stone-950"
+        <div className="hidden md:flex items-center">
+          <NavLink
+            to="/contact"
+            className="group inline-flex items-center gap-2.5 bg-clay-600 hover:bg-clay-700 text-cream-50 text-sm font-medium pl-6 pr-5 py-3 rounded-full transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100"
           >
-            Start Designing
-          </NavLink> */}
+            Get a Consultation
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </NavLink>
         </div>
 
         {/* Mobile toggle */}
@@ -75,13 +84,9 @@ const Header: React.FC = () => {
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="md:hidden p-2 rounded-lg text-stone-400 hover:text-stone-100 hover:bg-stone-800/60 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="md:hidden p-2 -mr-2 rounded-lg text-ink-soft hover:text-clay-600 hover:bg-cream-300/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600"
         >
-          {mobileOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -93,9 +98,9 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden bg-stone-950/98 border-t border-stone-800/60"
+            className="md:hidden overflow-hidden bg-cream-100 border-t border-line"
           >
-            <nav className="px-6 py-4 space-y-1" aria-label="Mobile navigation">
+            <nav className="px-6 py-5 space-y-1" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
@@ -103,24 +108,24 @@ const Header: React.FC = () => {
                   end={link.to === "/"}
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                    `block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 ${
                       isActive
-                        ? "text-amber-400 bg-amber-400/10"
-                        : "text-stone-400 hover:text-stone-100 hover:bg-stone-800/60"
+                        ? "text-clay-600 bg-cream-300/50"
+                        : "text-ink-soft hover:text-clay-600 hover:bg-cream-300/40"
                     }`
                   }
                 >
-                  {link.icon}
                   {link.label}
                 </NavLink>
               ))}
-              <div className="pt-2">
+              <div className="pt-3">
                 <NavLink
-                  to="/configurator"
+                  to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  className="flex items-center justify-center gap-2 w-full bg-clay-600 hover:bg-clay-700 text-cream-50 font-medium text-sm px-5 py-3.5 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600"
                 >
-                  Start Designing
+                  Get a Consultation
+                  <ArrowRight className="w-4 h-4" />
                 </NavLink>
               </div>
             </nav>

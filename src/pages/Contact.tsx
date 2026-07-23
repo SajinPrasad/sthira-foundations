@@ -4,9 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, ArrowRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { poolHouse } from '../assets/images';
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -19,8 +20,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const contactInfo = [
-  { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+91 8593930903' },
-  { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'sthiraspaces@gmail.com' },
+  { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+91 8593930903', href: 'tel:+918593930903' },
+  { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'sthiraspaces@gmail.com', href: 'mailto:sthiraspaces@gmail.com' },
   { icon: <MapPin className="w-5 h-5" />, label: 'Studio', value: 'Amaravathi, Muthukulam, Alappuzha' },
   { icon: <Clock className="w-5 h-5" />, label: 'Hours', value: 'Mon–Sat, 9 AM – 6 PM IST' },
 ];
@@ -39,7 +40,7 @@ const Contact: React.FC = () => {
         },
         body: JSON.stringify(data)
       });
-      
+
       toast.success('Message sent! Our team will reach out within 24 hours.');
       reset();
     } catch (error) {
@@ -48,62 +49,79 @@ const Contact: React.FC = () => {
     }
   };
 
+  const inputClass =
+    'w-full bg-cream-50 border border-line text-ink placeholder-ink-faint rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-clay-600/50 focus:border-clay-600/50 transition-all duration-200';
+
   return (
-    <div className="bg-stone-950 min-h-screen">
+    <div className="bg-cream-100 min-h-screen">
       <Header />
 
-      <main className="pt-24 pb-24 px-6">
+      <main className="pt-32 lg:pt-40 pb-24 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl mb-16"
           >
-            <span className="inline-block text-amber-400 text-sm font-mono tracking-widest uppercase mb-4">
+            <span className="inline-flex items-center gap-3 text-clay-600 text-xs font-semibold uppercase tracking-eyebrow">
+              <span className="h-px w-8 bg-clay-600/50" aria-hidden="true" />
               Get in Touch
             </span>
-            <h1 className="font-serif text-5xl md:text-6xl text-stone-50 mb-5">
-              Let's Build Something
-              <br />
-              <span className="text-amber-400">Extraordinary</span>
+            <h1 className="font-serif text-5xl md:text-6xl xl:text-7xl text-ink mt-6 leading-[1.05] tracking-[-0.01em]">
+              Let's build something
+              <span className="block text-clay-600 italic">extraordinary.</span>
             </h1>
-            <p className="text-stone-400 text-lg max-w-xl mx-auto leading-relaxed">
-              Ready to turn your design into a real project? Our team is here to help with planning, materials, and execution.
+            <p className="text-ink-muted text-lg max-w-xl leading-relaxed mt-7">
+              Ready to turn your vision into a real project? Our team is here to help with planning,
+              materials, and execution — from first idea to final finish.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact info */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-2 space-y-6"
             >
-              <div className="rounded-2xl bg-stone-900 border border-stone-800/60 p-8">
-                <h2 className="font-serif text-2xl text-stone-100 mb-6">Studio Details</h2>
-                <div className="space-y-5">
-                  {contactInfo.map(item => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center flex-shrink-0">
-                        {item.icon}
+              <div className="rounded-3xl bg-cream-200 border border-line p-8 shadow-sm">
+                <h2 className="font-serif text-3xl text-ink mb-7">Studio Details</h2>
+                <div className="space-y-6">
+                  {contactInfo.map(item => {
+                    const inner = (
+                      <>
+                        <div className="w-11 h-11 rounded-full bg-clay-50 border border-clay-600/20 text-clay-600 flex items-center justify-center flex-shrink-0">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p className="text-ink-faint text-xs uppercase tracking-eyebrow mb-1">{item.label}</p>
+                          <p className="text-ink text-[15px]">{item.value}</p>
+                        </div>
+                      </>
+                    );
+                    return item.href ? (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="flex items-start gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 rounded-xl"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <div key={item.label} className="flex items-start gap-4">
+                        {inner}
                       </div>
-                      <div>
-                        <p className="text-stone-500 text-xs uppercase tracking-wider mb-0.5">{item.label}</p>
-                        <p className="text-stone-200 text-sm">{item.value}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
-              <div className="rounded-2xl overflow-hidden h-48">
+              <div className="rounded-3xl overflow-hidden h-56 shadow-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=300&fit=crop"
-                  alt="Modern design studio interior with open workspace"
-                  width={600}
-                  height={300}
+                  src={poolHouse}
+                  alt="Contemporary Sthira Spaces home with a poolside courtyard"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -113,46 +131,46 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-3"
             >
-              <div className="rounded-2xl bg-stone-900 border border-stone-800/60 p-8">
-                <h2 className="font-serif text-2xl text-stone-100 mb-6">Send a Message</h2>
+              <div className="rounded-3xl bg-cream-50 border border-line p-8 lg:p-10 shadow-md">
+                <h2 className="font-serif text-3xl text-ink mb-7">Send a Message</h2>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-stone-400 text-sm mb-2">
-                        Full Name <span className="text-amber-400">*</span>
+                      <label htmlFor="name" className="block text-ink-soft text-sm font-medium mb-2">
+                        Full Name <span className="text-clay-600">*</span>
                       </label>
                       <input
                         id="name"
                         type="text"
                         autoComplete="name"
                         {...register('name')}
-                        className="w-full bg-stone-800/60 border border-stone-700/60 text-stone-100 placeholder-stone-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:border-amber-400/40 transition-all duration-200"
+                        className={inputClass}
                         placeholder="Your full name"
                       />
-                      {errors.name && <p className="text-red-400 text-xs mt-1.5">{errors.name.message}</p>}
+                      {errors.name && <p className="text-terra text-xs mt-1.5">{errors.name.message}</p>}
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-stone-400 text-sm mb-2">
-                        Email Address <span className="text-amber-400">*</span>
+                      <label htmlFor="email" className="block text-ink-soft text-sm font-medium mb-2">
+                        Email Address <span className="text-clay-600">*</span>
                       </label>
                       <input
                         id="email"
                         type="email"
                         autoComplete="email"
                         {...register('email')}
-                        className="w-full bg-stone-800/60 border border-stone-700/60 text-stone-100 placeholder-stone-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:border-amber-400/40 transition-all duration-200"
+                        className={inputClass}
                         placeholder="you@example.com"
                       />
-                      {errors.email && <p className="text-red-400 text-xs mt-1.5">{errors.email.message}</p>}
+                      {errors.email && <p className="text-terra text-xs mt-1.5">{errors.email.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="phone" className="block text-stone-400 text-sm mb-2">
+                      <label htmlFor="phone" className="block text-ink-soft text-sm font-medium mb-2">
                         Phone Number
                       </label>
                       <input
@@ -160,58 +178,59 @@ const Contact: React.FC = () => {
                         type="tel"
                         autoComplete="tel"
                         {...register('phone')}
-                        className="w-full bg-stone-800/60 border border-stone-700/60 text-stone-100 placeholder-stone-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:border-amber-400/40 transition-all duration-200"
+                        className={inputClass}
                         placeholder="+91 00000 00000"
                       />
                     </div>
                     <div>
-                      <label htmlFor="planType" className="block text-stone-400 text-sm mb-2">
-                        Plan Type <span className="text-amber-400">*</span>
+                      <label htmlFor="planType" className="block text-ink-soft text-sm font-medium mb-2">
+                        Plan Type <span className="text-clay-600">*</span>
                       </label>
                       <select
                         id="planType"
                         {...register('planType')}
-                        className="w-full bg-stone-800/60 border border-stone-700/60 text-stone-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:border-amber-400/40 transition-all duration-200 appearance-none"
+                        className={`${inputClass} appearance-none`}
                       >
-                        <option value="" className="bg-stone-900">Select a plan</option>
-                        <option value="1bhk" className="bg-stone-900">1 BHK Apartment</option>
-                        <option value="2bhk" className="bg-stone-900">2 BHK Apartment</option>
-                        <option value="3bhk" className="bg-stone-900">3 BHK House</option>
-                        <option value="villa" className="bg-stone-900">Villa Layout</option>
-                        <option value="custom" className="bg-stone-900">Custom Project</option>
+                        <option value="">Select a plan</option>
+                        <option value="1bhk">1 BHK Apartment</option>
+                        <option value="2bhk">2 BHK Apartment</option>
+                        <option value="3bhk">3 BHK House</option>
+                        <option value="villa">Villa Layout</option>
+                        <option value="custom">Custom Project</option>
                       </select>
-                      {errors.planType && <p className="text-red-400 text-xs mt-1.5">{errors.planType.message}</p>}
+                      {errors.planType && <p className="text-terra text-xs mt-1.5">{errors.planType.message}</p>}
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-stone-400 text-sm mb-2">
-                      Message <span className="text-amber-400">*</span>
+                    <label htmlFor="message" className="block text-ink-soft text-sm font-medium mb-2">
+                      Message <span className="text-clay-600">*</span>
                     </label>
                     <textarea
                       id="message"
                       rows={5}
                       {...register('message')}
-                      className="w-full bg-stone-800/60 border border-stone-700/60 text-stone-100 placeholder-stone-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:border-amber-400/40 transition-all duration-200 resize-none"
+                      className={`${inputClass} resize-none`}
                       placeholder="Tell us about your project, timeline, and any specific requirements…"
                     />
-                    {errors.message && <p className="text-red-400 text-xs mt-1.5">{errors.message.message}</p>}
+                    {errors.message && <p className="text-terra text-xs mt-1.5">{errors.message.message}</p>}
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-3 bg-amber-400 hover:bg-amber-300 disabled:bg-amber-400/50 text-stone-950 font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] disabled:scale-100 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-stone-900"
+                    className="group w-full flex items-center justify-center gap-3 bg-clay-600 hover:bg-clay-700 disabled:bg-clay-600/50 text-cream-50 font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-lg disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-stone-950/30 border-t-stone-950 rounded-full animate-spin" aria-hidden="true" />
+                        <div className="w-4 h-4 border-2 border-cream-50/40 border-t-cream-50 rounded-full animate-spin" aria-hidden="true" />
                         Sending…
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
                         Send Message
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </>
                     )}
                   </button>

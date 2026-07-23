@@ -1,101 +1,122 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Instagram, Twitter, Linkedin, Youtube, Facebook } from 'lucide-react';
+import { Instagram, Facebook, Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import logo from '../assets/logo.png';
+
+const socials = [
+  {
+    icon: Instagram,
+    label: 'Instagram',
+    href: 'https://www.instagram.com/sthira_spaces?igsh=MTlhZ3QyY3U4Y3p1eA==',
+  },
+  {
+    icon: Facebook,
+    label: 'Facebook',
+    href: 'https://www.facebook.com/share/1JDmwH5r8i/',
+  },
+];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-stone-950 border-t border-stone-800/60">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-cream-300 border-t border-line">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 mb-14">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <img src={logo} alt="Sthira Spaces Logo" className="h-20 w-auto object-contain" />
-            </div>
-            <p className="text-stone-500 text-sm leading-relaxed mb-6">
-              Visualize your dream space before a single wall is built.
+          <div className="md:col-span-5">
+            <img src={logo} alt="Sthira Spaces" className="h-16 w-auto object-contain -ml-1 mb-5" />
+            <p className="text-ink-muted text-base leading-relaxed max-w-sm">
+              Sthira Spaces — designing and building spaces that inspire, for generations. Complete
+              design and build solutions, under one roof.
             </p>
-            <div className="flex items-center gap-3">
-              {[
-                { icon: <Instagram className="w-4 h-4" />, label: 'Instagram', href: 'https://www.instagram.com/sthira_spaces?igsh=MTlhZ3QyY3U4Y3p1eA==' },
-                { icon: <Facebook className="w-4 h-4" />, label: 'Facebook', href: 'https://www.facebook.com/share/1JDmwH5r8i/' },
-                // { icon: <Twitter className="w-4 h-4" />, label: 'Twitter', href: '#' },
-                { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn', href: '#' },
-                { icon: <Youtube className="w-4 h-4" />, label: 'YouTube', href: '#' },
-              ].map(social => (
+            <p className="text-clay-600 font-medium mt-6 tracking-wide">#BuildWithSthira</p>
+            <div className="flex items-center gap-3 mt-6">
+              {socials.map((s) => (
                 <a
-                  key={social.label}
-                  href={social.href}
+                  key={s.label}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-400 hover:text-stone-200 flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  aria-label={s.label}
+                  className="w-10 h-10 rounded-full border border-line bg-cream-50 text-ink-soft hover:text-cream-50 hover:bg-clay-600 hover:border-clay-600 flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-600"
                 >
-                  {social.icon}
+                  <s.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Product */}
-          <div>
-            <h3 className="text-stone-200 text-sm font-semibold uppercase tracking-wider mb-4">Product</h3>
-            <ul className="space-y-3">
-              {['Configurator', 'House Plans', 'Material Library', 'Theme Presets'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200 focus:outline-none focus:underline">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-stone-200 text-sm font-semibold uppercase tracking-wider mb-4">Company</h3>
-            <ul className="space-y-3">
-              {['About Us', 'Our Projects', 'Careers', 'Press'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200 focus:outline-none focus:underline">
-                    {item}
-                  </a>
-                </li>
-              ))}
+          {/* Explore */}
+          <div className="md:col-span-3">
+            <h3 className="text-ink text-xs font-semibold uppercase tracking-eyebrow mb-5">Explore</h3>
+            <ul className="space-y-3.5">
+              <li>
+                <NavLink
+                  to="/"
+                  className="text-ink-muted text-[15px] hover:text-clay-600 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <a
+                  href="/#projects"
+                  className="text-ink-muted text-[15px] hover:text-clay-600 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                >
+                  Our Work
+                </a>
+              </li>
+              <li>
+                <NavLink
+                  to="/contact"
+                  className="text-ink-muted text-[15px] hover:text-clay-600 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                >
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="text-stone-200 text-sm font-semibold uppercase tracking-wider mb-4">Get in Touch</h3>
-            <ul className="space-y-3">
+          <div className="md:col-span-4">
+            <h3 className="text-ink text-xs font-semibold uppercase tracking-eyebrow mb-5">Get in Touch</h3>
+            <ul className="space-y-4">
               <li>
-                <NavLink to="/contact" className="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200 focus:outline-none focus:underline">
-                  Contact Us
-                </NavLink>
+                <a
+                  href="tel:+918593930903"
+                  className="group flex items-center gap-3 text-ink-muted text-[15px] hover:text-clay-600 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                >
+                  <Phone className="w-4 h-4 text-clay-600 flex-shrink-0" strokeWidth={1.7} />
+                  +91 85939 30903
+                </a>
               </li>
-              {['sthiraspaces@gmail.com', '+91 8593930903', 'Amaravathi, Muthukulam, Alappuzha'].map(item => (
-                <li key={item}>
-                  <span className="text-stone-500 text-sm">{item}</span>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="mailto:sthiraspaces@gmail.com"
+                  className="group flex items-center gap-3 text-ink-muted text-[15px] hover:text-clay-600 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                >
+                  <Mail className="w-4 h-4 text-clay-600 flex-shrink-0" strokeWidth={1.7} />
+                  sthiraspaces@gmail.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-ink-muted text-[15px]">
+                <MapPin className="w-4 h-4 text-clay-600 flex-shrink-0 mt-0.5" strokeWidth={1.7} />
+                Amaravathi, Muthukulam, Alappuzha, Kerala
+              </li>
             </ul>
+            <NavLink
+              to="/contact"
+              className="group inline-flex items-center gap-1.5 text-clay-600 font-medium mt-6 hover:text-clay-700 transition-colors focus:outline-none focus-visible:underline"
+            >
+              Get a Consultation
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </NavLink>
           </div>
         </div>
 
         {/* Sub-footer */}
-        <div className="pt-8 border-t border-stone-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-stone-600 text-sm">
-            © 2026 Sthira Spaces. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(item => (
-              <a key={item} href="#" className="text-stone-600 text-xs hover:text-stone-400 transition-colors duration-200 focus:outline-none focus:underline">
-                {item}
-              </a>
-            ))}
-          </div>
+        <div className="pt-8 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-ink-faint text-sm">© 2026 Sthira Spaces. All rights reserved.</p>
+          <p className="text-ink-faint text-xs uppercase tracking-eyebrow">Design · Build · Live</p>
         </div>
       </div>
     </footer>

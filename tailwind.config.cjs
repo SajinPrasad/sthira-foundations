@@ -15,6 +15,31 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Sthira Spaces brand palette — warm cream + terracotta
+        cream: {
+          50: '#FCFAF6',
+          100: '#F8F5F0',
+          200: '#F2ECE2',
+          300: '#EAE0D2',
+          400: '#DFD2BF',
+        },
+        clay: {
+          50: '#F7EEEC',
+          400: '#A9706D',
+          500: '#98605D',
+          600: '#8A4E4C',
+          700: '#7A4442',
+          800: '#653735',
+          900: '#4A2827',
+        },
+        terra: '#964A4A',
+        ink: {
+          DEFAULT: '#2A2320',
+          soft: '#4A413B',
+          muted: '#6E635C',
+          faint: '#948A82',
+        },
+        line: '#E4D9C9',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -62,11 +87,19 @@ module.exports = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(18px)' },
+          to: { opacity: '1', transform: 'translateY(0)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards'
+      },
+      letterSpacing: {
+        'eyebrow': '0.22em',
       },
       boxShadow: {
         "2xs": "var(--shadow-2xs)",

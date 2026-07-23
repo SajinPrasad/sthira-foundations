@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,34 +6,35 @@
 
 @layer base {
   :root {
-    --background: 20 14% 4%;
-    --foreground: 30 10% 92%;
-    --card: 20 10% 8%;
-    --card-foreground: 30 10% 92%;
-    --popover: 20 10% 8%;
-    --popover-foreground: 30 10% 92%;
-    --primary: 43 96% 56%;
-    --primary-foreground: 20 14% 4%;
-    --secondary: 20 8% 14%;
-    --secondary-foreground: 30 10% 80%;
-    --muted: 20 8% 14%;
-    --muted-foreground: 30 6% 50%;
-    --accent: 43 96% 56%;
-    --accent-foreground: 20 14% 4%;
-    --border: 20 8% 18%;
-    --input: 20 8% 18%;
-    --ring: 43 96% 56%;
-    --destructive: 0 72% 51%;
+    /* Warm light theme — cream canvas, terracotta accent */
+    --background: 38 33% 96%;      /* #F8F5F0 */
+    --foreground: 24 14% 15%;      /* ink */
+    --card: 40 40% 98%;            /* #FCFAF6 */
+    --card-foreground: 24 14% 15%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 24 14% 15%;
+    --primary: 1 29% 42%;          /* #8A4E4C */
+    --primary-foreground: 40 40% 98%;
+    --secondary: 36 30% 90%;
+    --secondary-foreground: 24 14% 20%;
+    --muted: 36 28% 92%;
+    --muted-foreground: 26 9% 40%;
+    --accent: 1 29% 42%;
+    --accent-foreground: 40 40% 98%;
+    --border: 36 30% 84%;
+    --input: 36 30% 84%;
+    --ring: 1 29% 42%;
+    --destructive: 0 65% 48%;
     --destructive-foreground: 0 0% 100%;
     --radius: 0.75rem;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.4), 0 1px 2px -1px hsl(0 0% 0% / 0.4);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.4), 0 1px 2px -1px hsl(0 0% 0% / 0.4);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4), 0 8px 10px -6px hsl(0 0% 0% / 0.4);
-    --shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-2xs: 0 1px 2px 0px hsl(24 20% 30% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(24 20% 30% / 0.06);
+    --shadow-sm: 0 2px 6px -1px hsl(24 20% 30% / 0.08), 0 1px 2px -1px hsl(24 20% 30% / 0.06);
+    --shadow: 0 4px 12px -2px hsl(24 20% 30% / 0.08), 0 2px 4px -2px hsl(24 20% 30% / 0.06);
+    --shadow-md: 0 10px 24px -6px hsl(24 20% 30% / 0.10), 0 4px 8px -4px hsl(24 20% 30% / 0.06);
+    --shadow-lg: 0 18px 40px -10px hsl(24 20% 30% / 0.14), 0 8px 16px -8px hsl(24 20% 30% / 0.08);
+    --shadow-xl: 0 30px 60px -14px hsl(24 25% 28% / 0.18), 0 12px 24px -10px hsl(24 20% 30% / 0.10);
+    --shadow-2xl: 0 40px 80px -20px hsl(24 25% 26% / 0.24);
   }
 }
 
@@ -43,29 +44,36 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-cream-100 text-ink font-sans antialiased;
+    background-color: #F8F5F0;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
+  ::selection {
+    background: #8A4E4C;
+    color: #FCFAF6;
+  }
+
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1c1917;
+    background: #F2ECE2;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #44403c;
-    border-radius: 3px;
+    background: #DFD2BF;
+    border-radius: 6px;
+    border: 2px solid #F2ECE2;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #57534e;
+    background: #C9B79C;
   }
 }
 
@@ -85,5 +93,14 @@
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
