@@ -13,8 +13,8 @@ const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  planType: z.string().min(1, 'Please select a plan type'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  planType: z.string().optional(),
+  message: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -184,7 +184,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <label htmlFor="planType" className="block text-ink-soft text-sm font-medium mb-2">
-                        Plan Type <span className="text-clay-600">*</span>
+                        Plan Type
                       </label>
                       <select
                         id="planType"
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-ink-soft text-sm font-medium mb-2">
-                      Message <span className="text-clay-600">*</span>
+                      Message
                     </label>
                     <textarea
                       id="message"
